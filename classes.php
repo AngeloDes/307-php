@@ -17,7 +17,7 @@ class Auto {
       //echo "Bitte erst Kraftstoff setzen!";
     } else {
       //echo "<p>Bitte mit " . $this->kraftstoff . " betanken</p>";
-      $_SESSION["betankungen"]++;
+    //  $_SESSION["betankungen"]++;
     }
   }
 
