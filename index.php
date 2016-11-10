@@ -18,12 +18,18 @@
         <div class="col-md-12">
           <h1>Primzahlen <i class="fa fa-ambulance" aria-hidden="true"></i></h1>
           <?php
+
+
+
           Primzahlberechnung(50);
           Tabellenkacke(30);
           isprimzahl(15);
 
+
+
           function isprimzahl($i)
           {
+              echo "<h1>Die Funktion " . __FUNCTION__ . " wird aufgerufen.</h1>";
               $unteilbar = true;
               for ($k = 2;$k < $i;$k++)
               {
@@ -39,8 +45,11 @@
                   echo "<p>" . $i . " ist eine Primzahl.</p>";
               }
           }
+
+
           function Primzahlberechnung($zahl)
           {
+              echo "<h1>Die Funktion " . __FUNCTION__ . " wird aufgerufen.</h1>";
               for ($i = 2;$i <= $zahl;$i++)
               {
                   $unteilbar = true;
@@ -58,8 +67,11 @@
                   }
               }
           }
+
+
           function Tabellenkacke($lolrofl)
           {
+              echo "<h1>Die Funktion " . __FUNCTION__ . " wird aufgerufen.</h1>";
               $j = 1;
               echo "<h1>Tabelle <i class=\"fa fa-ambulance\" aria-hidden=\"true\"></i></h1>";
               echo "<table class=\"table table-striped table-bordered\">";
@@ -67,11 +79,13 @@
               for ($i = 0;$i < $lolrofl;$i++)
               {
                   echo "<tr><td>" . $i . "</td><td>" . $j . "</td></tr>";
-                  $j = $i;
-                  $i;
+                  $j = $j + 2;
+                  $i++;
               }
               echo "</table>";
           }
+
+
           ?>
          </div>
       </div>
