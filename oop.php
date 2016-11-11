@@ -22,7 +22,7 @@
         <div class="col-md-12">
           <h1><a href="http://localhost/307-php/oop.php" class="fa fa-home fa-lg"></a></h1>
           <br>
-            <form method="POST">
+            <form method="POST" id="form1">
               <div class="form-group">
                 <label for="name">Name</label>
                 <input class="form-control" id="name" type="text" name="name" value="Winterauto" placeholder="Name">
@@ -47,19 +47,19 @@
                     <option>Kerosin</option>
                   </select>
               </div>
-              <div class="form-group">
+            <!--  <div class="form-group">
                 <label for="alter">Alter</label>
                 <input disabled class="form-control" type="number" name="Alter" value="" placeholder="Alter">
-              </div>
-              <div class="form-group">
+              </div>-->
+              <!-- <div class="form-group">
                 <label for="email">Email</label>
-                <input class="form-control" type="email" name="email" value="lol@lol.lol" placeholder="Email">
-              </div>
-            <!--  <div>
+                <input class="form-control" type="email" id="email" name="email" value="lol@lol.lol" placeholder="Email">
+              </div> -->
+              <!-- <div>
                 <label class="checkbox-inline"><input disabled name="checkbox2" type="checkbox" value="">Option 1</label>
                 <label class="checkbox-inline"><input name="checkbox2" type="checkbox" value="">Option 2</label>
-              </div>
-              <div>
+              </div> -->
+              <!-- <div>
                 <div class="radio">
                   <label><input type="radio" name="radio1">Option 1</label>
                 </div>
@@ -69,7 +69,7 @@
                 <div class="radio disabled">
                   <label><input type="radio" name="radio3" disabled>Option 3</label>
                 </div>
-              </div>-->
+              </div> -->
               <div>
                 <button onclick="firstFunc()" type="button" class="btn btn-default"><i class="fa fa-ban" aria-hidden="true"></i>&nbsp; Button</button>
               <!--  <button type="reset" class="btn btn-default"><i class="fa fa-ban" aria-hidden="true"></i>&nbsp; Formular zurücksetzen</button>-->
@@ -81,20 +81,34 @@
         <div class="col-md-12">
           <div id="ergebnis" class="hidden"></div>
           <!--<h1>Objektorientierte Entwicklung <i class="fa fa-ambulance" aria-hidden="true"></i></h1>-->
+          <div id="div123">
+            <br>
+            <table id="tabletest" class="hidden table table-striped">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Kraftstoff</th>
+                  <th>Farbe</th>
+                  <th>Bauart</th>
+                  <th>Tankdeckelöffnungen</th>
+                  <th>TankDeckel öffnen</th>
+                </tr>
+              </thead>
+              <tbody id="tabletestbody">
 
+              </tbody>
+            </table>
+          </div>
 
           <?php
             include("classes.php");
 
-            if(!empty($_POST)){
+          /*  if(!empty($_POST)){
               feldercheck();
-            }
-
-
-
+            }*/
 
             //POST variablen zwischenspeichern
-            /*print_r($_POST);
+          /*print_r($_POST);
             $name = $_POST["name"];
             $farbe = $_POST["farbe"];
             $email = $_POST["email"];
@@ -104,17 +118,7 @@
 
           //  session_start();
           //  if(!isset($_SESSION["betankungen"])) $_SESSION["betankungen"] = 0;
-            $golf = new Auto();
-            $golf->setName("Golf");
-            $golf->setKraftstoff("DIESELLLL");
-            $golf->tankDeckelOeffnen();
-            $golf->setFarbe("Schwarz");
-            $golf->setBauart("Limousine");
-            $golf->autoDaten();
-
-
-
-
+          //  $golf->autoDaten();
 
           /*  $BMW = new Auto();
             $BMW->setName("BMW");
@@ -129,82 +133,6 @@
             $BMW->autoDaten();*/
 
             //getBetankungen();
-
-            function feldercheck(){
-              $fehler = "<br>Fehler: ";
-              $fehlerbool = false;
-
-              if(!empty($_POST["name"])){
-                $name = trim(htmlspecialchars($_POST["name"]));
-                //echo $name;
-              }else{
-                echo $fehler . "Name leer!<br>";
-                $fehlerbool = true;
-              }
-
-              if(!empty($_POST["farbe"])){
-                $farbe = $_POST["farbe"];
-                //echo "<br>" . $farbe;
-              }else{
-                echo $fehler . "Farbe leer!";
-                $fehlerbool = true;
-              }
-
-              if(!empty($_POST["email"])){
-                $email = $_POST["email"];
-                //echo "<br>" . $email;
-              }else{
-                echo $fehler . "eMail leer!";
-                $fehlerbool = true;
-              }
-
-              if(!empty($_POST["kraftstoff"])){
-                $kraftstoff = trim(htmlspecialchars($_POST["kraftstoff"]));
-                //echo $name;
-              }else{
-                echo $fehler . "Kein Kraftstoff angegeben!<br>";
-                $fehlerbool = true;
-              }
-
-              if(!empty($_POST["bauart"])){
-                $bauart = trim(htmlspecialchars($_POST["bauart"]));
-                //echo $name;
-              }else{
-                echo $fehler . "Keine Bauart angegeben!<br>";
-                $fehlerbool = true;
-              }
-
-            /*  if(!empty($_POST["checkbox1"])){
-                $checkbox1 = $_POST["checkbox1"];
-                echo "<br>" . $checkbox1;
-              }
-
-              if(!empty($_POST["checkbox2"])){
-                $checkbox1 = $_POST["checkbox2"];
-                echo "<br>" . $checkbox2;
-              }
-
-              if(empty($_POST["radio1"]) && empty($_POST["radio2"]) && empty($_POST["radio2"])){
-                echo $fehler . "Bitte eines der Drei Felder anwählen!";
-              } else if (!empty($_POST["radio1"])) {
-                $radio1 = $_POST["radio1"];
-              } else if (!empty($_POST["radio2"])) {
-                $radio2 = $_POST["radio2"];
-              } else if (!empty($_POST["radio3"])) {
-                $radio3 = $_POST["radio3"];
-              }*/
-
-              if(!$fehlerbool){
-                $testauto = new Auto();
-                $testauto->setName($name);
-                $testauto->setFarbe($farbe);
-                $testauto->setKraftstoff($kraftstoff);
-                $testauto->setBauart($bauart);
-                $testauto->autoDaten();
-              }
-
-            }
-
 
           ?>
          </div>

@@ -9,17 +9,11 @@ class Auto {
   private $kraftstoff;    //Diesel, Benzin
   private $bauart;        //Cabrio, Limousine, Kombi
   private $name;
+  private $daten;
+  private $antwort;
+  private $code;          //HTTP Statuscode /200 OK   418 Not ok
+  private $anzTankungen = 0;
 
-
-  public function tankDeckelOeffnen(){
-    //$this->kraftstoff = "Diesel";
-    if ($this->kraftstoff == null) {
-      //echo "Bitte erst Kraftstoff setzen!";
-    } else {
-      //echo "<p>Bitte mit " . $this->kraftstoff . " betanken</p>";
-    //  $_SESSION["betankungen"]++;
-    }
-  }
 
   public function setName($name){
     $this->name = $name;
@@ -37,15 +31,50 @@ class Auto {
     $this->bauart = $bauart;
   }
 
-  public function autoDaten(){
-    echo "<h3> Daten vom Auto " . $this->name . "</h3>";
-    echo "<p>Kraftstoff: " . $this->kraftstoff . "</p>";
-    echo "<p>Farbe: " . $this->farbe . "</p>";
-    echo "<p>Bauart: " . $this->bauart . "</p>";
+  public function addTankungen(){
+    $this->anzTankungen++;
+    $_SESSION["anzTankungen"] = anzTankungen;
   }
 
-/*  function __construct(){
-    echo "<p>Konstruktor der Klasse Auto</p>";
+  public function getTankungen(){
+    http_response_code(200);
+    echo json_encode($anzTankungen);
+  }
+
+  // public function autoDaten(){
+  //   echo "<h3> Daten vom Auto " . $this->name . "</h3>";
+  //   echo "<p>Kraftstoff: " . $this->kraftstoff . "</p>";
+  //   echo "<p>Farbe: " . $this->farbe . "</p>";
+  //   echo "<p>Bauart: " . $this->bauart . "</p>";
+  // }
+
+  public function getAuto(){ //Array für Daten senden
+    if($this->daten){
+      $this->daten = array(
+        "status" => true,
+        "antwort" => $this->antwort,
+        "name" => $this->name,
+        "kraftstoff" => $this->kraftstoff,
+        "farbe" => $this->farbe,
+        "bauart" => $this->bauart,
+        "code" => $this->code);
+    } else {
+      $this->code = 418;
+      $this->antwort = "Nichts OK!";
+      $this->daten = array(
+        "status" => false,
+        "code" => $this->code,
+        "antwort" => $this->antwort);
+    }
+    //PHP aufbereitung
+    http_response_code($this->code);
+    echo json_encode($this->daten, $this->code);
+  }
+
+  function __construct(){
+    $this->daten = true;
+    $this->antwort = "Alles OK!";
+    $this->code = 200;
   }
 
 /*function __destruct(){
@@ -55,8 +84,5 @@ class Auto {
 }
 
 
-  function getBetankungen(){
-    echo "<br><h4> Es wurde insgesamt " . $_SESSION["betankungen"] .  " mal getankt.</h4>";
-  }
 
  ?>
