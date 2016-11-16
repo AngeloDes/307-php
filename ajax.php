@@ -2,34 +2,53 @@
 session_start();
 include("classes.php");
 
-@$name = trim(htmlspecialchars($_POST["name"]));
-@$farbe = trim(htmlspecialchars($_POST["farbe"]));
-@$kraftstoff = trim(htmlspecialchars($_POST["kraftstoff"]));
-@$bauart = trim(htmlspecialchars($_POST["bauart"]));
 @$aktion = $_POST["aktion"];
-@$anzTankungen = $_POST["anzTankungen"];
-@$reftestauto;
+@$autoid = $_POST["id"];
+
 
 //print_r($_POST);
 if($aktion == "neu"){
-  if(!empty($name) && !empty($farbe) && !empty($bauart) && !empty($kraftstoff)){
-    $testauto = new Auto();
-    $testauto->setName($name);
-    $testauto->setFarbe($farbe);
-    $testauto->setKraftstoff($kraftstoff);
-    $testauto->setBauart($bauart);
-  //  $testauto->setTankungen();
-    $testauto->getAuto();
-    $reftestauto = $testauto;
-  //  print_r($testauto);
-  } else {
+
+  @$name = trim(htmlspecialchars($_POST["name"]));
+  @$farbe = trim(htmlspecialchars($_POST["farbe"]));
+  @$kraftstoff = trim(htmlspecialchars($_POST["kraftstoff"]));
+  @$bauart = trim(htmlspecialchars($_POST["bauart"]));
+    if(!empty($name) && !empty($farbe) && !empty($bauart) && !empty($kraftstoff)){
+      $testauto = new Auto();
+      $testauto->setName($name);
+      $testauto->setFarbe($farbe);
+      $testauto->setKraftstoff($kraftstoff);
+      $testauto->setBauart($bauart);
+    // $testauto->setTankungen();
+      //$testauto->getAuto();
+      $testauto->saveAuto();
+      $reftestauto = $testauto;
+    //  print_r($testauto);
+    } else {
     echo false;
   }
-} else if($aktion == "tanken"){
-    print_r($reftestauto);
-    // $reftestauto->addTankungen();
-    // $reftestauto->getTankungen();
-  }else{
+} else if($aktion == "deleteDaten"){
+  $testauto = new Auto();
+  $testauto->deleteData($autoid);
+} else if($aktion == "datenHolen"){
+  $testauto = new Auto();
+  $testauto->datenHolen($autoid);
+}
+else if($aktion == "modifyDaten"){
+  @$name = trim(htmlspecialchars($_POST["name"]));
+  @$farbe = trim(htmlspecialchars($_POST["farbe"]));
+  @$kraftstoff = trim(htmlspecialchars($_POST["kraftstoff"]));
+  @$bauart = trim(htmlspecialchars($_POST["bauart"]));
+  $testauto = new Auto();
+  $testauto->setName($name);
+  $testauto->setFarbe($farbe);
+  $testauto->setKraftstoff($kraftstoff);
+  $testauto->setBauart($bauart);
+  $testauto->modifyData($autoid);
+} else if($aktion == "selectDaten"){
+    $testauto = new Auto();
+    $testauto->selectData();
+  } else {
     echo false;
   }
 

@@ -20,9 +20,13 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
+          <div class="alert alert-danger hidden" id="topdivdanger" role="alert"><h3>Daten wurden erfolgreich entfernt!</h3></div>
+          <div class="alert alert-success hidden" id="topdivsuccess" role="alert"><h3>Daten wurden erfolgreich hinzugefügt!</h3></div>
+          <div class="alert alert-warning hidden" id="topdivwarning" role="alert"><h3>Daten wurden erfolgreich bearbeitet!</h3></div>
           <h1><a href="http://localhost/307-php/oop.php" class="fa fa-home fa-lg"></a></h1>
           <br>
             <form method="POST" id="form1">
+              <input type="hidden" id="autoid" value="">
               <div class="form-group">
                 <label for="name">Name</label>
                 <input class="form-control" id="name" type="text" name="name" value="Winterauto" placeholder="Name">
@@ -71,9 +75,10 @@
                 </div>
               </div> -->
               <div>
-                <button onclick="firstFunc()" type="button" class="btn btn-default"><i class="fa fa-ban" aria-hidden="true"></i>&nbsp; Button</button>
+                <button onclick="firstFunc()" type="button" class="btn btn-default"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp; Button</button>
               <!--  <button type="reset" class="btn btn-default"><i class="fa fa-ban" aria-hidden="true"></i>&nbsp; Formular zurücksetzen</button>-->
-                <button type="submit" class="btn btn-default"><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp; Absenden</button>
+          <!--      <button type="submit" class="btn btn-default"><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp; Absenden</button>-->
+                <button onclick="modifyDaten()" id="update" type="button" class="btn btn-default hidden"><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp; Datensatz aktualisieren</button>
               </div>
             </form>
         </div>
@@ -90,8 +95,10 @@
                   <th>Kraftstoff</th>
                   <th>Farbe</th>
                   <th>Bauart</th>
-                  <th>Tankdeckelöffnungen</th>
-                  <th>TankDeckel öffnen</th>
+                  <th>Eintrag löschen</th>
+                  <th>Eintrag bearbeiten</th>
+                <!--  <th>Tankdeckelöffnungen</th>
+                  <th>TankDeckel öffnen</th>-->
                 </tr>
               </thead>
               <tbody id="tabletestbody">
@@ -102,6 +109,7 @@
 
           <?php
             include("classes.php");
+
 
           /*  if(!empty($_POST)){
               feldercheck();

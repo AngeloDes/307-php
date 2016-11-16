@@ -11,10 +11,10 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-echo "Connected successfully";
+//echo "Connected successfully";
 
 //$sql = "SELECT id, name, bauart, kraftstoff, farbe FROM privat";
-$sql = "SELECT * FROM privat";
+/*$sql = "SELECT * FROM privat";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -28,7 +28,7 @@ if ($result->num_rows > 0) {
     }
 } else {
     echo "0 results";
-}
-$conn->close();
+}*/
+//$conn->close();
 
 ?>
