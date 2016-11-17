@@ -112,37 +112,6 @@
           <?php
             include("classes.php");
 
-          /*  if(!empty($_POST)){
-              feldercheck();
-            }*/
-
-            //POST variablen zwischenspeichern
-          /*print_r($_POST);
-            $name = $_POST["name"];
-            $farbe = $_POST["farbe"];
-            $email = $_POST["email"];
-            $checkbox1 = $_POST["checkbox1"];
-            $checkbox1 = $_POST["checkbox2"];*/
-
-
-            session_start();
-          //  if(!isset($_SESSION["betankungen"])) $_SESSION["betankungen"] = 0;
-          //  $golf->autoDaten();
-
-          /*  $BMW = new Auto();
-            $BMW->setName("BMW");
-            //$golf->tankDeckelOeffnen();
-            $BMW->setKraftstoff("Benzin");
-            $BMW->tankDeckelOeffnen();
-            $BMW->tankDeckelOeffnen();
-            $BMW->tankDeckelOeffnen();
-            $BMW->tankDeckelOeffnen();
-            $BMW->setFarbe("Pink");
-            $BMW->setBauart("ROFLKOPTER");
-            $BMW->autoDaten();*/
-
-            //getBetankungen();
-
           ?>
          </div>
       </div>
