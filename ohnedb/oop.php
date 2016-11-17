@@ -14,32 +14,37 @@
       body {
         font-family: Montserrat;
       }
-      div.test {
-        width: 75%;
-        float: left
-      }
-      div.test2 {
-        width: 22%;
-        float: right;
-      }
+    #test123{
+      font-weight: 700;
+    }
     </style>
   </head>
   <body>
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <div class="alert alert-danger hidden" id="topdivdanger" role="alert"><h3>Daten wurden erfolgreich entfernt!</h3></div>
-          <div class="alert alert-success hidden" id="topdivsuccess" role="alert"><h3>Daten wurden erfolgreich hinzugefügt!</h3></div>
-          <div class="alert alert-warning hidden" id="topdivwarning" role="alert"><h3>Daten wurden erfolgreich bearbeitet!</h3></div>
           <h1><a href="http://localhost/307-php/oop.php" class="fa fa-home fa-lg"></a></h1>
           <br>
             <form method="POST" id="form1">
-              <input type="hidden" id="autoid" value="">
-              <div class="form-group test">
-                <label for="name">Name</label>
+              <div class="radio form-group">
+                <p id="test123">Anrede</p>
+                <div>
+                  <div class="radio">
+                    <label><input type="radio" name="anrede" value="Herr">Herr</label>
+                  </div>
+                  <div class="radio">
+                    <label><input type="radio" name="anrede" value="Frau">Frau</label>
+                  </div>
+                  <div class="radio">
+                    <label><input type="radio" name="anrede" value="Apache Kampfhelikopter">Apache Kampfhelikopter</label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="name">Autoname</label>
                 <input class="form-control" id="name" type="text" name="name" value="Winterauto" placeholder="Name">
-             </div>
-              <div class="form-group test2">
+              </div>
+              <div class="form-group">
                 <label for="farbe">Farbe</label>
                 <input class="form-control" id="farbe" type="color" name="farbe" value="#cc00cc" placeholder="Farbe">
               </div>
@@ -71,22 +76,12 @@
                 <label class="checkbox-inline"><input disabled name="checkbox2" type="checkbox" value="">Option 1</label>
                 <label class="checkbox-inline"><input name="checkbox2" type="checkbox" value="">Option 2</label>
               </div> -->
-              <!-- <div>
-                <div class="radio">
-                  <label><input type="radio" name="radio1">Option 1</label>
-                </div>
-                <div class="radio">
-                  <label><input type="radio" name="radio2">Option 2</label>
-                </div>
-                <div class="radio disabled">
-                  <label><input type="radio" name="radio3" disabled>Option 3</label>
-                </div>
-              </div> -->
               <div>
-                <button onclick="firstFunc()" type="button" class="btn btn-default"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp; Eintrag hinzufügen</button>
+              </div>
+              <div>
+                <button onclick="firstFunc()" type="button" class="btn btn-default"><i class="fa fa-ban" aria-hidden="true"></i>&nbsp; Button</button>
               <!--  <button type="reset" class="btn btn-default"><i class="fa fa-ban" aria-hidden="true"></i>&nbsp; Formular zurücksetzen</button>-->
-          <!--      <button type="submit" class="btn btn-default"><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp; Absenden</button>-->
-                <button onclick="modifyDaten()" id="update" type="button" class="btn btn-default hidden"><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp; Datensatz aktualisieren</button>
+                <button type="submit" class="btn btn-default"><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp; Absenden</button>
               </div>
             </form>
         </div>
@@ -96,17 +91,16 @@
           <!--<h1>Objektorientierte Entwicklung <i class="fa fa-ambulance" aria-hidden="true"></i></h1>-->
           <div id="div123">
             <br>
+            <div id="testdiv2" class="alert alert-danger hidden">
+            </div>
             <table id="tabletest" class="hidden table table-striped">
               <thead>
                 <tr>
-                  <th>Name</th>
+                  <th>Anrede</th>
+                  <th>Autoname</th>
                   <th>Kraftstoff</th>
                   <th>Farbe</th>
                   <th>Bauart</th>
-                  <th>Eintrag löschen</th>
-                  <th>Eintrag bearbeiten</th>
-                <!--  <th>Tankdeckelöffnungen</th>
-                  <th>TankDeckel öffnen</th>-->
                 </tr>
               </thead>
               <tbody id="tabletestbody">
@@ -117,7 +111,6 @@
 
           <?php
             include("classes.php");
-
 
           /*  if(!empty($_POST)){
               feldercheck();

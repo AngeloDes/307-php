@@ -37,6 +37,7 @@ function firstFunc(){
           $("#tabletest").removeClass("hidden");
           $("#tabletestbody").append(html);
         }
+        $("#update").addClass("hidden");
         $("#topdivsuccess").removeClass("hidden");
         $("#topdivwarning").addClass("hidden");
         $("#topdivdanger").addClass("hidden");
@@ -83,6 +84,7 @@ function selectDaten(){
 
           $("#tabletest").removeClass("hidden");
           $("#tabletestbody").html(html);
+          $("#update").addClass("hidden");
         }
 
       },
