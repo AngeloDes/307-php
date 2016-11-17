@@ -14,6 +14,9 @@
       body {
         font-family: Montserrat;
       }
+      #topdivlol{
+        margin-top: 10px;
+      }
       div.test {
         width: 75%;
         float: left
@@ -27,11 +30,12 @@
   <body>
     <div class="container">
       <div class="row">
-        <div class="col-md-12">
-          <div class="alert alert-danger hidden" id="topdivdanger" role="alert"><h3>Daten wurden erfolgreich entfernt!</h3></div>
+        <div  id="topdivlol" class="col-md-12">
+          <div class="alert alert-warning hidden" id="topdivdanger" role="alert"><h3>Daten wurden erfolgreich entfernt!</h3></div>
           <div class="alert alert-success hidden" id="topdivsuccess" role="alert"><h3>Daten wurden erfolgreich hinzugefügt!</h3></div>
           <div class="alert alert-warning hidden" id="topdivwarning" role="alert"><h3>Daten wurden erfolgreich bearbeitet!</h3></div>
-          <h1><a href="http://localhost/307-php/oop.php" class="fa fa-home fa-lg"></a></h1>
+          <div class="alert alert-danger hidden" id="topdivnotfilled" role="alert"><h3>Bitte alle Felder ausfüllen</h3></div>
+          <h1><a href="" class="fa fa-home fa-lg"></a></h1>
           <br>
             <form method="POST" id="form1">
               <input type="hidden" id="autoid" value="">

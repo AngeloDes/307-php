@@ -10,9 +10,9 @@ function firstFunc(){
   var farbe = $("#farbe").val();
   var bauart = $("#bauart").val();
 
-  if(name && kraftstoff && farbe && bauart) {
+//  if(name && kraftstoff && farbe && bauart) {
     check = true;
-  }
+//  }
 
   if(check) {
     $.ajax({
@@ -41,10 +41,12 @@ function firstFunc(){
         $("#topdivsuccess").removeClass("hidden");
         $("#topdivwarning").addClass("hidden");
         $("#topdivdanger").addClass("hidden");
-
+        $("#topdivnotfilled").addClass("hidden");
       },
       error: function(){
         console.log("err");
+        $("#topdivnotfilled").removeClass("hidden");
+
       },
       complete: function(){
         console.log("nach");
@@ -116,6 +118,7 @@ function deleteDaten(id){
         $("#topdivsuccess").addClass("hidden");
         $("#topdivwarning").addClass("hidden");
         $("#topdivdanger").removeClass("hidden");
+        $("#topdivnotfilled").addClass("hidden");
       },
       error: function(){
         console.log("err3");
@@ -186,6 +189,7 @@ function modifyDaten(){
         $("#topdivsuccess").addClass("hidden");
         $("#topdivwarning").removeClass("hidden");
         $("#topdivdanger").addClass("hidden");
+        $("#topdivnotfilled").addClass("hidden");
       },
       error: function(){
         console.log("err4");

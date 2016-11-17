@@ -34,7 +34,7 @@ class Auto {
 
   public function addTankungen(){
     $this->anzTankungen++;
-    $_SESSION["anzTankungen"] = anzTankungen;
+    $_SESSION["anzTankungen"] = $anzTankungen;
   }
 
   public function getTankungen(){

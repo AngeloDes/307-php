@@ -23,7 +23,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h1><a href="http://localhost/307-php/oop.php" class="fa fa-home fa-lg"></a></h1>
+          <h1><a href="" class="fa fa-home fa-lg"></a></h1>
           <br>
             <form method="POST" id="form1">
               <div class="radio form-group">
@@ -125,7 +125,7 @@
             $checkbox1 = $_POST["checkbox2"];*/
 
 
-          //  session_start();
+            session_start();
           //  if(!isset($_SESSION["betankungen"])) $_SESSION["betankungen"] = 0;
           //  $golf->autoDaten();
 
